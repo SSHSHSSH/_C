@@ -41,7 +41,7 @@ int main(){
 
 
 //scanf与getchar的读取方法
-/* #include <stdio.h>
+#include <stdio.h>
 int main(){
     char password[20] = {0};
     printf("请输入密码：");
@@ -60,24 +60,4 @@ int main(){
         printf("No");
     }
     return 0;
-} */
-
-
-
-
-//练习
-//打印3的倍数的数
-#include <stdio.h>
-
-int main(){
-
-	int i = 1;
-
-	while(i < 100){
-		printf("%d\n", i);
-		i*=3;
-	}
-    
-	return 0;
-
-}
+} 
