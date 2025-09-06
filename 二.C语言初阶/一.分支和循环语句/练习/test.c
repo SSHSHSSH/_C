@@ -255,8 +255,9 @@ int main(){
 
 
 
-
-#include <stdio.h>
+//计算BMI指数
+//BMI=体重(kg)÷身高^2(m^2)
+/* #include <stdio.h>
 
 int main(){
     int ht = 0;
@@ -266,4 +267,4 @@ int main(){
     float bmi = wt / ((ht/100.0) * (ht/100.0));
     printf("bmi = %.2f\n", bmi);
     return 0;
-}
+} */
