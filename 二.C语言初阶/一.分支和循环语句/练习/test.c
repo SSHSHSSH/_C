@@ -268,3 +268,113 @@ int main(){
     printf("bmi = %.2f\n", bmi);
     return 0;
 } */
+
+
+//计算n的阶乘
+/* #include <stdio.h>
+
+int main(){
+    int i = 1;
+    int n = 0;
+    int ret = 1;
+    scanf("%d", &n);
+    for(i = 1; i <= n; i++)
+        ret = ret * i;
+    printf("%d", ret);
+    return 0;
+} */
+
+
+
+
+
+
+//计算1!+2!+3!+...+10!
+//方法一
+/* #include <stdio.h>
+
+int main(){
+    int i = 1;
+    int ret = 1;
+    int n = 1;
+    int sum = 0;
+    for(n = 1;  n <=3; n++){
+        ret = 1;
+        for(i = 1; i <= n; i++)
+            ret = ret * i;
+        sum = sum + ret;
+    }
+    printf("%d", sum);
+} */
+
+//方法二：
+//1! = 1 * 1
+//2! = 1! * 2
+//3! = 3! * 3
+//以此类推····
+/* #include <stdio.h>
+
+int main(){
+    int i = 1;
+    int ret = 1;
+    int n = 0;
+    int t = 0;
+    int sum = 0;
+    for(i = 1; i <= 3; i++){//i = 1时，ret = 1！，i = 2时，ret = 1! * 2(也就是2的阶乘)，i = 3时，ret = 2！，ret = 2！ * 3
+        ret = ret * i;
+        sum = sum + ret;
+    }
+    printf("%d", sum);
+} */
+
+
+
+
+//在有序数组中查找数字下标
+//顺序查找
+/* #include <stdio.h>
+
+int main(){
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int i = 0;
+    int k = 0;
+    scanf("%d", &k);
+    int sz = sizeof(arr) / sizeof(arr[0]);
+    for(i = 0; i < sz; i++){
+        if(arr[i] == k){
+            printf("找到了，下标是 %d", i);
+            break;
+        }
+    }
+    if(i == sz)
+        printf("没找到");
+    return 0;
+} */
+
+//二分法查找
+#include <stdio.h>
+
+int main(){
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int k = 7;
+    int i = 0;
+    int sz = sizeof(arr) / sizeof(arr[0]);
+    
+    int left = 0;
+    int right = sz - 1;
+
+    while(left <= right){
+        int mid = (left + right) / 2;
+        if(arr[mid] > k)
+            right = mid - 1;    
+        else if(arr[mid] < k)
+            left = mid + 1;
+        else{
+            printf("找到了，下标是%d" ,mid);
+            break;
+        }
+    }
+    if(left > right)
+        printf("找不到");
+    return 0;
+}
