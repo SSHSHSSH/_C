@@ -352,7 +352,7 @@ int main(){
 } */
 
 //二分法查找
-#include <stdio.h>
+/* #include <stdio.h>
 
 int main(){
     int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -376,5 +376,132 @@ int main(){
     }
     if(left > right)
         printf("找不到");
+    return 0;
+} */
+
+
+//编写代码，演示多个字符从两端移动，向中间汇聚
+/* #include <stdio.h>
+#include <string.h>
+#include <windows.h>
+
+int main(){
+    char arr1[] = ("Welcome to bit!!!!");
+    char arr2[] = ("##################");
+    
+    //由于数组是由字符串初始化的所以末尾有一个隐藏的\n
+    //strlen求的是字符串长度，不包含\n
+    //sizeof求的是空间的大小，包含\n
+    int sz = sizeof(arr2) / sizeof(arr2[0]);//计算数组个数
+    
+
+   
+
+    int left = 0;//左下标
+    //int right = sz-2;//右下标 = 数组个数 - 1
+    int right = strlen(arr2) - 1;
+
+    while(left <= right){
+        arr2[left] = arr1[left];
+        arr2[right] = arr1[right];
+
+        left++;
+        right--;
+
+        printf("%s\r", arr2);// /r回车符，使光标回到行首
+        
+        Sleep(1000);//休眠 1 秒
+        
+        //system("cls");//清理屏幕  //system是一个库函数 可以执行系统命令
+    }
+    return 0;
+
+
+} */
+
+
+//一个简陋的登陆程序
+/* #include <stdio.h>
+#include <string.h>
+//
+
+int main(){
+    int i = 0;
+    char arr[20] = {0};
+    for(i = 0; i < 3; i++){
+        printf("请输入密码：");
+        scanf("%s", arr);//arr本省就是i地址所以不需要使用 & 符号
+        if(strcmp(arr, "abc") == 0){
+            printf("登陆成功\n");
+            break;
+        }
+        else{
+            printf("密码错误\n");
+        }
+    }
+    if(i == 3)
+        printf("三次密码错误！");
+    return 0;
+} */
+
+
+
+//猜数字
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+void menu(){
+    printf("********************\n");
+    printf("*****  1.play  *****\n");
+    printf("*****  0.exit  *****\n");
+    printf("********************\n");
+}
+
+//0~RAND_MAX(32767)
+void game(){
+    int guess = 0;
+    //1.生成随机数
+    //0~99 --> 1~100
+    int ret = rand()%100+1;//生成1~100随机数
+    //printf("%d\n", ret);
+    //2.猜数字
+    while(1){
+        printf("请猜数字：");
+        scanf("%d", &guess);
+        if(guess < ret){
+            printf("猜小了\n");
+        }
+        else if(guess > ret){
+            printf("猜大了\n");
+        }
+        else{
+            printf("恭喜你，猜对了\n");
+            break;
+        }
+    }
+}
+int main(){
+    int input = 0;
+    srand((unsigned int)time(NULL));
+
+    do{
+        menu();
+        printf("请选择：");
+        scanf("%d", &input);
+        switch(input){
+            case 1:
+                game();
+                break;
+            case 0:
+                printf("退出游戏\n");
+                break;
+            default:
+                printf("选择错误，重新选择！\n");
+                break;
+        }
+    }
+    while(input);
+
     return 0;
 }
