@@ -23,8 +23,7 @@ int main(){
         i = 12;//建议不要再for循环体内修改迭代变量，防止失控
     }
     return 0;
-}
- */
+} */
 
 
 /* #include <stdio.h>
