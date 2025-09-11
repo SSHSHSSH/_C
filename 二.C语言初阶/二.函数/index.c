@@ -291,20 +291,44 @@ int main(){
 } */
 
 
-#include <stdio.h>
+/* #include <stdio.h>
 
 int main(){
     printf("%d", printf("%d", printf("%d", 43)));
     return 0;
-}
+} */
 //printf返回值是打印参数的个数
 //链式访问的前提条件是函数有返回值
 //函数没写返回类型的时候，默认返回类型是int
 //int类型函数没写返回值的时候，默认返回最后一条语句的返回结果
 //明确的说明main函数不需要参数，本质上main函数是有参数的
 //main函数有三个参数
-#include <stdio.h>
+/* #include <stdio.h>
 
 int main(int argc, char* argv[], char* envp[]){
     return 0;
+} */
+
+
+
+
+
+
+#include <stdio.h>
+
+//函数的声明
+int Add(int, int);//这里也可以加上 x, y 与 函数的定义 保持一致
+
+int main(){
+    int a = 0;
+    int b = 0;
+    printf("请输入两个数字:");
+    scanf("%d %d", &a, &b);
+    int sum = Add(a, b);
+    printf("%d", sum);
+}
+
+//函数的定义
+int Add(int x, int y){
+    return x + y;
 }
